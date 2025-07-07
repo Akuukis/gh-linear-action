@@ -432,7 +432,7 @@ const linear = __nccwpck_require__(851);
     const teamId = core.getInput('linear-team-id');
     const title = core.getInput('title');
     const url = core.getInput('url');
-    const description = core.getInput('body') + `\n\n[View original issue in GitHub](${url})`;
+    const description = core.getInput('body') + (url ? `\n\n[View original issue in GitHub](${url})` : '');
 
     const linearClient = new linear.LinearClient({ apiKey });
     await linearClient.issueCreate({ 
@@ -443,6 +443,7 @@ const linear = __nccwpck_require__(851);
 
     return
 })();
+
 
 /***/ }),
 
